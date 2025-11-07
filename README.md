@@ -1,73 +1,61 @@
-# React + TypeScript + Vite
+# PLNVinetas-FrontEnd :speech_balloon:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## By: TatoNaranjo | Santiago Naranjo Herrera
 
-Currently, two official plugins are available:
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+## Tabla de Contenidos :page_with_curl:
+- [Qué es PLNVinetas-FrontEnd](#qué-es-plnvinetas-frontend)
+- [Dependencias](#dependencias)
+- [Pasos de Instalación](#pasos-de-instalación)
+- [Notas Adicionales](#notas-adicionales)
+- [Licencia](#licencia)
+- [Contacto](#contacto)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Qué es PLNVinetas-FrontEnd? :book:
+`PLNVinetas-FrontEnd` es una interfaz de chat moderna construida con **React** y **TypeScript**, utilizando **Vite** para el empaquetado y **Tailwind CSS** para los estilos.
 
-## Expanding the ESLint configuration
+Esta aplicación consume la API del proyecto [psicologiaPLN](https://github.com/TatoNaranjo/psicologiaPLN). Permite a un usuario (como un psicólogo) enviar viñetas clínicas a un asistente de IA local. El chat es capaz de mantener una conversación y, cuando detecta una viñeta, consulta al backend para obtener un análisis RAG (Generación Aumentada por Recuperación) basado en un corpus del DSM.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Dependencias :warning:
+* [Node.js](https://nodejs.org/) (versión 18+ recomendada)
+* Un gestor de paquetes de Node (`npm`, `yarn`, o `pnpm`)
+* **Importante:** El [backend psicologiaPLN](https://github.com/TatoNaranjo/psicologiaPLN) debe estar corriendo en `http://localhost:8000`.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Pasos de Instalación :checkered_flag:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1.  **Clona el repositorio**
+    ```bash
+    git clone [https://github.com/TatoNaranjo/PLNVinetas-FrontEnd](https://github.com/TatoNaranjo/PLNVinetas-FrontEnd)
+    cd PLNVinetas-FrontEnd
+    ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+2.  **Instala las dependencias de Node**
+    ```bash
+    npm install
+    ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+3.  **Asegúrate de que el Backend esté corriendo**
+    * En otra terminal, asegúrate de que tanto el servidor de **Ollama** como el servidor de **Django** (`psicologiaPLN`) estén en ejecución.
+    * El backend debe estar accesible en `http://localhost:8000`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+4.  **Inicia el servidor de desarrollo de Vite**
+    ```bash
+    npm run dev
+    ```
+    * La aplicación estará disponible en `http://localhost:5173`.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Notas adicionales :construction:
+-   Este proyecto es **solo el frontend**. No funcionará si el backend `psicologiaPLN` y el servidor de Ollama no están corriendo.
+-   El `App.tsx` está configurado para hacer peticiones a `http://localhost:8000/api/analizar_chat/`.
+-   Los estilos están definidos con clases de utilidad de **Tailwind CSS**.
+
+## Licencia :door:
+Este proyecto está licenciado bajo la [Licencia MIT](https://opensource.org/licenses/MIT).
+
+## Contacto :computer:
+Para preguntas o comentarios, puedes contactarme a través de mi [correo electrónico](mailto:naranjosa2004@gmail.com).
