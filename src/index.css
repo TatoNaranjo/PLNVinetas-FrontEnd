@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .bg-gradient-hero {
+    /* Un gradiente profesional de azul a morado */
+    background-image: linear-gradient(135deg, #3b82f6 0%, #6d28d9 100%);
+  }
+  .bg-gradient-accent {
+    /* Un fondo sutil para la sección 'Cómo funciona' */
+    background-image: linear-gradient(180deg, #f3f4f6 0%, #ffffff 100%);
+  }
+  .shadow-glow {
+    /* Un 'glow' sutil para los botones y tarjetas */
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+  }
+}
