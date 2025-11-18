@@ -196,12 +196,6 @@ function App(): JSX.Element {
       {/* --- Live Demo Section --- */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          {/*
-            * ¡AQUÍ ESTÁ LA MAGIA!
-            * Simplemente llamamos a nuestro componente ChatWidget.
-            * Él ya tiene su propio título ("Prueba el Asistente en Vivo")
-            * y todo el estilo de "widget" (sombra, bordes, etc.)
-            */}
           <ChatWidget />
         </div>
       </section>
